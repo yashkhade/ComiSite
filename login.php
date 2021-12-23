@@ -1,48 +1,68 @@
 <?php require "header.php"; ?>
+
 <?php
     function login_user($email,$password)
     {
         $email = htmlentities($email);
         $password = htmlentities($password);
-        //$con = mysqli_connect("localhost","root","","users");
-        $con = mysqli_connect("remotemysql.com","eXcArO3s4n","gJ0S2ixTiU","eXcArO3s4n");
+        require "config.php"; 
+        $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
         $sql = "SELECT * FROM user_data WHERE email='".mysqli_real_escape_string($con,$email)."' AND password='".$password."' AND validity = 1";
         $result = $con -> query($sql);
         $row = mysqli_fetch_array($result);
-        $_SESSION["username"] = $row['name'];
-        $_SESSION["email"] = $row["email"];
-        $_SESSION["validity"] = $row["validity"];
-        $_SESSION["mailing"] = $row["mailing"];
-
         if(mysqli_num_rows($result)==1){
+            $_SESSION["username"] = $row['name'];
+            $_SESSION["email"] = $row["email"];
+            $_SESSION["validity"] = $row["validity"];
+            $_SESSION["mailing"] = $row["mailing"];
             return True;
         }
         return False;
-        
     }
-    if(!isset($_POST["email"]))
+    if (!empty($_POST))
     {
-        echo "Enter Email";
-    }
-    elseif(!isset($_POST["password"]))
-    {
-        echo "Enter Password";
-    }
-    else
-    {
-        if(login_user($_POST["email"],$_POST["password"])){
-            redirect('dashboard.php');
+        if(!isset($_POST["email"]))
+        {
+            echo "Enter Email And Password To continue";
+        }
+        elseif(!isset($_POST["password"]))
+        {
+            echo "Enter Password";
         }
         else
         {
-            echo "User Not Found";
+            
+            if(login_user(htmlentities($_POST["email"]),htmlentities($_POST["password"]))){
+                redirect('dashboard.php');
+            }
+            else
+            {
+                echo "User Not Found";
+            }
         }
     }
 ?>
+<script>
+   function required()
+    {
+        var empt = document.forms["form1"]["email"].value;
+        if (empt == "")
+        {
+            alert("Please Provide Email");
+            return false;
+        }
+        var empt1 = document.forms["form1"]["password"].value;
+        if (empt1 == "")
+        {
+            alert("Please Provide Password");
+            return false;
+        }
+    }
 
+</script>
 <div class="countainer">
 <h1 class="h1" >Log In</h1>
-<form action="login.php" method="post">
+<form name="form1" action="login.php" onsubmit="required()" method="post">
     <div class="form">
         <input type="text" name="email" id="email" placeholder="Enter Email">
         <input type="password" name="password" id="password" placeholder="Password">
@@ -52,4 +72,5 @@
     </div>
 </form>
 </div>
+
 <?php require "footer.php"; ?>

@@ -16,6 +16,10 @@
     {
         return header("Location: {$location}");
     }
+    function phpAlert($msg) 
+    {
+         echo '<script type="text/javascript">alert("' . $msg . '")</script>'; 
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
