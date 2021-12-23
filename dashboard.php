@@ -1,6 +1,6 @@
 <?php require "header.php"; ?>
 
-<h1> Welcome <?php echo $_SESSION["username"];?><h1>
+<h1> Welcome <?php echo $_SESSION["username"]; ?><h1>
 <?php
     function start_mailing()
     {

@@ -5,7 +5,14 @@ function activate_user()
     if(isset($_GET["email"]))
     {
         $email = htmlentities($_GET["email"]);
-        $validation_code = htmlentities($_GET["code"]);
+        if(isset($_GET["code"])){
+            $validation_code = htmlentities($_GET["code"]);
+        }
+        else
+        {
+            phpalert('Error occured, Sorry Your Account is Not Activated');
+            return;
+        }
         require "config.php"; 
         $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
         $sql = "SELECT name FROM user_data WHERE email ='".mysqli_real_escape_string($con,$email)."' AND validation_code ='".mysqli_real_escape_string($con,$validation_code)."'";

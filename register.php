@@ -33,14 +33,21 @@
     require "config.php";
     $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
     $name = mysqli_real_escape_string($con, $_POST["name"]);
-    $surname = mysqli_real_escape_string($con, $_POST["surname"]);
-    $email = mysqli_real_escape_string($con, $_POST["email"]);
-    $password =mysqli_real_escape_string($con, $_POST["pass"]);
-    $cnfpass = mysqli_real_escape_string($con, $_POST["cnfpass"]);
+    if(isset($_POST["surname"])){
+      $surname = mysqli_real_escape_string($con, $_POST["surname"]);
+    }
+    if(isset($_POST["email"])){
+      $email = mysqli_real_escape_string($con, $_POST["email"]);
+    }
+    if(isset($_POST["pass"])){
+      $password =mysqli_real_escape_string($con, $_POST["pass"]);
+    }
+    if(isset($_POST["cnfpass"])){
+      $cnfpass = mysqli_real_escape_string($con, $_POST["cnfpass"]);  
+    }
     if(email_exists($email))
     {
       echo "<script>alert('Sorry that email is already registered, try checking your inbox.')</script>";
-      goto a;
       return;
     }
     if(valid_pass($password,$cnfpass))
@@ -107,7 +114,6 @@
         {
           echo "<script>alert('Please check Your mail for Verification')";
         }
-      a:
     }
 }
 ?>
