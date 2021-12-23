@@ -1,5 +1,5 @@
-##Problem Statement
-#####1. Email a random XKCD challenge
+## Problem Statement
+##### 1. Email a random XKCD challenge
 Please create a simple PHP application that accepts a visitor's email address and emails them random XKCD comics every five minutes.
 
 1. Your app should include email verification to avoid people using others’ email addresses.
@@ -9,13 +9,13 @@ Please create a simple PHP application that accepts a visitor's email address an
 
 Since this is a simple project it must be done in core PHP including API calls, recurring emails, including attachments should happen in core PHP. Please do not use any libraries.
 
-#--------------------------------
-
+## 
 <h1 style="background-color: rgb(96, 202, 101);
     color: rgb(247, 234, 181);
     text-align: center;
     font-size: xx-large;" align="center">ComiSite</h1>
-**<a href="https://comisite.herokuapp.com/">View Demo</a>**
+ <a href="https://comisite.herokuapp.com/">View Demo</a>
+ 
 ## Table Of Content
 
 - <a href="#about-the-project">About The Project</a>
@@ -29,7 +29,7 @@ Comisite is the site that delivers comics to your inbox to keep you entertained 
 This is a PHP based project, once you connect with us we bring comic's to your inbox every five minutes. All you have to do is sign up and subscribe to our mailing service to get started.
 
 Waiting for you on the other side.
-:tw-27a1: **<a href="https://comisite.herokuapp.com/">View Demo</a>**
+**<a href="https://comisite.herokuapp.com/">View Demo</a>**
 ## Built With
 
 Here is the list of Programming languages, framework and other services that we have used for this project :
@@ -42,7 +42,7 @@ Here is the list of Programming languages, framework and other services that we 
 - remotemysql (Database)
 - Heroku (Hosting)
 
-##Working
+## Working
 - Once you enter the site you can login or register instead to sign up. 
 - After filling the registration form you will need to verify your account to continue without any trouble.
 - once you successfully verify your account ypu can sign in.
@@ -50,12 +50,12 @@ Here is the list of Programming languages, framework and other services that we 
 - Here you can send a sample email with comic attached to the email.
 - Or can subcribe to the email service to get comic sent to your inbox every five minutes.
 
-##Assumptions
+## Assumptions
 *There are no other assumptions made, as such to the knowledge.*
 
 
 ## Contact
-** *Yash Khade* **
+ *Yash Khade*
 Email :  <khadeyash777@gmail.com>
  [Github](https://github.com/yashkhade777/comisite) 
 
