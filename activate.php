@@ -19,8 +19,14 @@ function activate_user()
         if($con->query($sql))
         {
             $sql2 = "UPDATE user_data SET validity = 1 WHERE email = '".mysqli_real_escape_string($con,$email)."' AND validation_code ='".mysqli_real_escape_string($con,$validation_code)."' ";
+            if($con->query($sql2))
+            {
+                phpalert("Your Account is Activated Please Login");
+            }
+            else{
+                phpalert("Error occured, Sorry Please Try Again");
+            }
             
-            phpalert("Your Account is Activated Please Login");
         }
         else
         {
