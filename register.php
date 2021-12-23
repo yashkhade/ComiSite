@@ -47,7 +47,8 @@
     }
     if(email_exists($email))
     {
-      echo "<script>alert('Sorry that email is already registered, try checking your inbox.')</script>";
+      phpalert('Sorry that email is already registered, try checking your inbox.');
+      redirect("login.php");
       return;
     }
     if(valid_pass($password,$cnfpass))
@@ -112,7 +113,8 @@
 
         if($response)
         {
-          echo "<script>alert('Please check Your mail for Verification')";
+          phpalert('Please check Your mail for Verification');
+          redirect("login.php");
         }
     }
 }

@@ -1,6 +1,5 @@
 <?php require "header.php"; ?>
-
-<h1> Welcome <?php echo $_SESSION["username"]; ?><h1>
+<h1 style="color: grey;"> Welcome <?php echo $_SESSION["username"]; ?>,<h1>
 <?php
     function start_mailing()
     {
@@ -122,7 +121,13 @@
     }
 ?>
 <br>
-<a href="dashboard.php?run=true">Click Me To Send Sample Comic Mail To You</a><br>
-<a href="dashboard.php?subscribe=true">Click Me To Subcribe To Comic Mailing</a>
 
+<a href="dashboard.php?run=true"><button style="width: 30%;">Send Sample Comic Mail To You</button></a>
+<a href="dashboard.php?subscribe=true"><button style="background-color: #32a14d; width: 30%;">Subcribe To Comic Mailing</button></a>
+<br>
+<p style="padding: 0px;
+    font: small-caption;
+    font-variant: all-petite-caps;
+    color: darkgray;
+">*If You Subscribe You will Receive Comic mail from us every 5 minutes</p>
 <?php require "footer.php"; ?>

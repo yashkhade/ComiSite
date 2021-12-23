@@ -31,7 +31,7 @@
 </head>
 
 <link rel="stylesheet" href="style.css">
-<body>
+<body style="text-align: center;">
 <div style="background-color: rgb(96, 202, 101);
     color: rgb(247, 234, 181);
     text-align: center;
