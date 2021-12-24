@@ -5,7 +5,13 @@
     {
         $email = htmlentities($email);
         $password = htmlentities($password);
-        require "config.php"; 
+        // require "config.php"; 
+        
+        $db_host = getenv("db_host");
+        $db_username = getenv("db_username");
+        $db_password = getenv("db_password");
+        $db_database = getenv("db_database");
+
         $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
         $sql = "SELECT * FROM user_data WHERE email='".mysqli_real_escape_string($con,$email)."' AND password='".$password."' AND validity = 1";
         $result = $con -> query($sql);

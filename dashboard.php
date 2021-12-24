@@ -14,8 +14,8 @@
         $sep = 'image';//sha1(date('r', time()));
         
         $email = $_SESSION["email"];
-        require "config.php";
-        $apikey = $API_KEY;
+        //require "config.php";
+        $apikey = getenv("API_KEY");//$API_KEY;
         $name = "ComiSite";
         $body = "<!DOCTYPE html>
         <html>
@@ -85,6 +85,11 @@
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
         curl_close($ch);
+
+        $db_host = getenv("db_host");
+        $db_username = getenv("db_username");
+        $db_password = getenv("db_password");
+        $db_database = getenv("db_database");
 
         $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
         $email = $_SESSION['email'];
