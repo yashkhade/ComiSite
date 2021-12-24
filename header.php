@@ -27,15 +27,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HOME</title>
+    <title>HOME | ComSite</title>
 </head>
 
 <link rel="stylesheet" href="style.css">
 <body style="text-align: center;">
-<div style="background-color: rgb(96, 202, 101);
+<div style="background-color: rgb(56 90 113 / 76%);;
     color: rgb(247, 234, 181);
     text-align: center;
-    font-size: xx-large;">ComiSite</div>
+    font-size: xxx-large;">ComiSite</div>
 <br>
 <div class="navbar" style = "
   background-color: lightblue;
@@ -43,8 +43,20 @@
   float: initial;
   padding: 6px 3px;
   font-size: large;">
-  <a href="dashboard.php">Dashboard</a>
-  <a href="register.php">Register</a>
-  <a href="login.php">Login</a>
-  <a href="logout.php">log Out</a>
+  
+  <a href="dashboard.php"><button style="width: 100px; padding: 2px; background-color: #049daab0;">Dashboard</button></a>
+  
+  &nbsp
+  
+  <a href="register.php"><button style="width: 100px; padding: 2px; background-color: #049daab0;">Register</button></a>
+  
+  &nbsp
+  
+  <a href="login.php"><button style="width: 100px; padding: 2px; background-color: #049daab0;">Login</button></a>
+  
+  &nbsp
+  
+  <a href="logout.php"><button style="width: 100px; padding: 2px; background-color: #049daab0;">log Out</button></a>
+  
 </div>
+<br>

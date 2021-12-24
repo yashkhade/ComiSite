@@ -2,6 +2,7 @@
 <?php
 if(isset($_GET['start']))
 {
+    $record = array();
     // require "config.php";
     $db_host = getenv("db_host");
     $db_username = getenv("db_username");
