@@ -1,8 +1,13 @@
-<!-- https://php-project-email.herokuapp.com/cron.php?start=true -->
+<!-- https://comisite.herokuapp.com/cron.php?start=true -->
 <?php
 if(isset($_GET['start']))
 {
-    require "config.php";
+    // require "config.php";
+    $db_host = getenv("db_host");
+    $db_username = getenv("db_username");
+    $db_password = getenv("db_password");
+    $db_database = getenv("db_database");
+
     $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
     $sql = "SELECT email FROM `user_data` WHERE sub_status = '1'";
     $result = $con->query($sql);
@@ -24,8 +29,8 @@ if(isset($_GET['start']))
 
         foreach($record as $email)
         {
-            require "config.php";
-            $apikey = $API_KEY;
+            // require "config.php";
+            $apikey = getenv("API_KEY");//$API_KEY;
             $name = "ComiSite";
             $body = "<!DOCTYPE html>
             <html>

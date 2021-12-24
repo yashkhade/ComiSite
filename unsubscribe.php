@@ -4,7 +4,12 @@
     {
         if(isset($_GET['email']))
         {
-            require "config.php"; 
+            // require "config.php"; 
+            $db_host = getenv("db_host");
+            $db_username = getenv("db_username");
+            $db_password = getenv("db_password");
+            $db_database = getenv("db_database");
+
             $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
             $email = $_GET['email'];    
             $sql2 = "UPDATE user_data SET sub_status = 0 WHERE email = '$email'";

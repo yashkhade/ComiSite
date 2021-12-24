@@ -15,8 +15,8 @@
         
         $email = $_SESSION["email"];
         //require "config.php";
-        $apikey = getenv("API_KEY");//$API_KEY;
-        $name = "ComiSite";
+        $apikey = getenv("API_KEY"); //$API_KEY;
+        
         $body = "<!DOCTYPE html>
         <html>
         <head><title>COMIC IMAGE</title>
@@ -43,13 +43,14 @@
                     "to" => array(
                         array(
                             "email" => $email,
-                            "name" => $name
+                            "name" => $email
                         )
                     )
                 )
             ),
             "from" => array(
-                "email" => "khadeyash547@gmail.com"
+                "email" => "khadeyash547@gmail.com",
+                "name" => "ComiSite"
             ),
             "subject" => $subject,
             "content" => array(

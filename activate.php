@@ -13,7 +13,12 @@ function activate_user()
             phpalert('Error occured, Sorry Your Account is Not Activated');
             return;
         }
-        require "config.php"; 
+        // require "config.php"; 
+        $db_host = getenv("db_host");
+        $db_username = getenv("db_username");
+        $db_password = getenv("db_password");
+        $db_database = getenv("db_database");
+        
         $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
         $sql = "SELECT name FROM user_data WHERE email ='".mysqli_real_escape_string($con,$email)."' AND validation_code ='".mysqli_real_escape_string($con,$validation_code)."'";
         if($con->query($sql))

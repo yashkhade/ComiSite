@@ -2,7 +2,12 @@
 <?php
   function email_exists($email)
   {
-    require "config.php";
+    // require "config.php";
+    $db_host = getenv("db_host");
+    $db_username = getenv("db_username");
+    $db_password = getenv("db_password");
+    $db_database = getenv("db_database");
+    
     $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
     $sql = "SELECT email FROM user_data WHERE email ='$email'";
     $result = $con->query($sql);
@@ -30,7 +35,12 @@
   }
   if(isset($_POST['name']))
   {
-    require "config.php";
+    // require "config.php";
+    $db_host = getenv("db_host");
+    $db_username = getenv("db_username");
+    $db_password = getenv("db_password");
+    $db_database = getenv("db_database");
+
     $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
     $name = mysqli_real_escape_string($con, $_POST["name"]);
     if(isset($_POST["surname"])){
@@ -59,9 +69,9 @@
       {
         die("Database Error");
       }
-        require "config.php";
-        $apikey = $API_KEY;
-        $name = "ComiSite";
+        // require "config.php";
+        $apikey = getenv("API_KEY");//$API_KEY;
+        
         $body = "<!DOCTYPE html>
         <html>
         <head><title>Verify your email</title>
@@ -84,13 +94,14 @@
                     "to" => array(
                         array(
                             "email" => $email,
-                            "name" => $name
+                            "name" => $email
                         )
                     )
                 )
             ),
             "from" => array(
-                "email" => "khadeyash547@gmail.com"
+                "email" => "khadeyash547@gmail.com",
+                "name" => "ComiSite"
             ),
             "subject" => $subject,
             "content" => array(

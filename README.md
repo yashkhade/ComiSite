@@ -13,14 +13,15 @@ Since this is a simple project it must be done in core PHP including API calls, 
 <h1 style="background-color: rgb(96, 202, 101);
     color: rgb(247, 234, 181);
     text-align: center;
-    font-size: xx-large;" align="center">ComiSite</h1>
+    font-size: xx-large;">ComiSite</h1>
  <a href="https://comisite.herokuapp.com/">View Demo</a>
  
 ## Table Of Content
 
 - <a href="#about-the-project">About The Project</a>
 - <a href="#built-with">Built With</a>
-- <a href="#Acknowledgments">Assumptions</a>
+- <a href="#working">Working</a>
+- <a href="#assumptions">Assumptions</a>
 - <a href="#contact">Contact</a>
 
 ## About The Project
@@ -62,3 +63,4 @@ Email :  <khadeyash777@gmail.com>
 Project Repository Link: [https://github.com/rtlearn/php-yashkhade777](https://github.com/rtlearn/php-yashkhade777)
 Project Hosting Repository Link: [https://github.com/yashkhade777/comisite](https://github.com/yashkhade777/comisite)
 ###### *The code was being pushed to both the repositories simultaniously, so both rtlearn and personal repository has same data.
+###### *Some times you might miss a mail due to SendGrid's functionality. 
