@@ -1,5 +1,5 @@
 <?php require "header.php"; ?>
-<h1 style="color: grey;"> Welcome <?php echo $_SESSION["username"]; ?>,<h1>
+<h1 style="color: #394679;"> Welcome <?php echo $_SESSION["username"]; ?>,<h1>
 <?php
     function start_mailing()
     {
