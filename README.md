@@ -25,7 +25,7 @@ Since this is a simple project it must be done in core PHP including API calls, 
 - <a href="#contact">Contact</a>
 
 ## About The Project
-Comisite is the site that delivers comics to your inbox to keep you entertained throughout the day. Living in a Fast-Paced World, with lots of workload and pressure, we bring you a bunch of puns to help you servive the day.
+Comisite is the site that delivers comics to your inbox to keep you entertained throughout the day. Living in a Fast-Paced World, with lots of workload and pressure, we bring you a bunch of puns to help you survive the day.
 
 This is a PHP based project, once you connect with us we bring comic's to your inbox every five minutes. All you have to do is sign up and subscribe to our mailing service to get started.
 
@@ -44,12 +44,11 @@ Here is the list of Programming languages, framework and other services that we 
 - Heroku (Hosting)
 
 ## Working
-- Once you enter the site you can login or register instead to sign up. 
-- After filling the registration form you will need to verify your account to continue without any trouble.
-- once you successfully verify your account ypu can sign in.
-- on signing in you will be at the dashboard of the project.
-- Here you can send a sample email with comic attached to the email.
-- Or can subcribe to the email service to get comic sent to your inbox every five minutes.
+- After opening the site you can login or register instead to sign up. 
+- After filling the registration form you have to verify your account.
+- After you have successfully verified your account you have to sign in.
+- The Dashboard will be visible to you after signing in.
+- Here you can send a sample email with a comic attached to the email or can subscribe to the email service to get comics sent to your inbox every five minutes interval.
 
 ## Assumptions
 *There are no other assumptions made, as such to the knowledge.*
@@ -62,5 +61,5 @@ Email :  <khadeyash777@gmail.com>
 
 Project Repository Link: [https://github.com/rtlearn/php-yashkhade777](https://github.com/rtlearn/php-yashkhade777)
 Project Hosting Repository Link: [https://github.com/yashkhade777/comisite](https://github.com/yashkhade777/comisite)
-###### *The code was being pushed to both the repositories simultaniously, so both rtlearn and personal repository has same data.
+###### *The code was being pushed to both the repositories simultaneously, so both rtlearn and personal repository has same data.
 ###### *Some times you might miss a mail due to SendGrid's functionality. 
