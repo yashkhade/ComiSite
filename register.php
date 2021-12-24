@@ -77,7 +77,7 @@
         <head><title>Verify your email</title>
         </head>
         <body>please click on this link  
-        <a href = 'https://php-project-email.herokuapp.com/activate.php?email=$email&code=$validation_code'>click here</a> <br>
+        <a href = 'https://comisite.herokuapp.com/activate.php?email=$email&code=$validation_code'>click here</a> <br>
         To activate your account.
         </body>
         </html>";

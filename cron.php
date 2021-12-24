@@ -42,7 +42,7 @@ if(isset($_GET['start']))
             <br>
             If you do not wish to receive this email please click below to unsubscribe.
             <br>
-            <a href='https://php-project-email.herokuapp.com/unsubscribe.php?unsub=true&email=$email'>UnSubscribe</a>
+            <a href='https://comisite.herokuapp.com/unsubscribe.php?unsub=true&email=$email'>UnSubscribe</a>
             </body>
             </html>";
             $subject = "Comic Update - ComiSite";

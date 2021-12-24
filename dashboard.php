@@ -16,7 +16,7 @@
         $email = $_SESSION["email"];
         //require "config.php";
         $apikey = getenv("API_KEY"); //$API_KEY;
-        
+
         $body = "<!DOCTYPE html>
         <html>
         <head><title>COMIC IMAGE</title>
@@ -27,7 +27,7 @@
         <br>
         If you do not wish to receive this email please click below to unsubscribe.
         <br>
-        <a href='https://php-project-email.herokuapp.com/unsubscribe.php?unsub=true&email=$email'>UnSubscribe</a>
+        <a href='https://comisite.herokuapp.com/unsubscribe.php?unsub=true&email=$email'>UnSubscribe</a>
         </body>
         </html>";
         $subject = "Comic Update - ComiSite";
