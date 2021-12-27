@@ -163,11 +163,11 @@
 <h1 class="h1" >Sign Up Form</h1>
 <form name="register" action="register.php" onsubmit="required()" method="post">
     <div class="form">
-        <input type="text" name="name" id="name" placeholder="Enter name">
-        <input type="text" name="surname" id="surname" placeholder="Enter Surname">
-        <input type="text" name="email" id="email" placeholder="Enter Email">
-        <input type="password" name="pass" id="pass" placeholder="Password">
-        <input type="password" name="cnfpass" id="cnfpass" placeholder="Confirm Password"><br>
+        <input type="text" name="name" id="name" placeholder="Enter name" required>
+        <input type="text" name="surname" id="surname" placeholder="Enter Surname" required>
+        <input type="text" name="email" id="email" placeholder="Enter Email" required>
+        <input type="password" name="pass" id="pass" placeholder="Password" required>
+        <input type="password" name="cnfpass" id="cnfpass" placeholder="Confirm Password" required><br>
         <button style='background-color: rgb(102, 102, 179)' type="submit">submit</button>
     </div>
 </form>
