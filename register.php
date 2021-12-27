@@ -130,7 +130,17 @@
     }
 }
 ?>
-<script>
+<script type="text/javascript">
+  function check() {
+        var email_x = document.getElementById("email").value;
+        filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (filter.test(email.value)) {
+            return true;
+        } else {
+            window.alert("Please enter valid email");
+            return false;
+        }
+    }
    function required()
     {
       var empt = document.forms["register"]["email"].value;
@@ -165,7 +175,7 @@
     <div class="form">
         <input type="text" name="name" id="name" placeholder="Enter name" required>
         <input type="text" name="surname" id="surname" placeholder="Enter Surname" required>
-        <input type="text" name="email" id="email" placeholder="Enter Email" required>
+        <input type="text" name="email" id="email" placeholder="Enter Email" onchange="check();" required>
         <input type="password" name="pass" id="pass" placeholder="Password" required>
         <input type="password" name="cnfpass" id="cnfpass" placeholder="Confirm Password" required><br>
         <button style='background-color: rgb(102, 102, 179)' type="submit">submit</button>

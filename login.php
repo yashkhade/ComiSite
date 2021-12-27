@@ -48,7 +48,17 @@
         }
     }
 ?>
-<script>
+<script type="text/javascript">
+    function check() {
+        var email_x = document.getElementById("email").value;
+        filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        if (filter.test(email.value)) {
+            return true;
+        } else {
+            window.alert("Please enter valid email");
+            return false;
+        }
+    }
    function required()
     {
         var empt = document.forms["form1"]["email"].value;
@@ -70,8 +80,8 @@
 <h1 class="h1" >Log In</h1>
 <form name="form1" action="login.php" onsubmit="required()" method="post">
     <div class="form">
-        <input type="text" name="email" id="email" placeholder="Enter Email">
-        <input type="password" name="password" id="password" placeholder="Password">
+        <input type="text" name="email" id="email" placeholder="Enter Email" onchange="check();" required>
+        <input type="password" name="password" id="password" placeholder="Password" required>
         <button style='background-color: rgb(102, 102, 179)' type="submit">submit</button>
         <br>
         <a href="register.php">Register Instead</a>
