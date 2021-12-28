@@ -18,8 +18,14 @@
         $apikey = getenv('API_KEY'); //API_KEY;
         $email_from = getenv('email_from');
         $email_from_name = getenv('email_from_name');
-        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === 0 ? 'https://' : 'http://';
-        $url = $protocol.$_SERVER['HTTP_HOST'];
+        if(isset($_SERVER['SERVER_PROTOCOL']))
+        {
+            if(isset($_SERVER['HTTP_HOST']))
+            {
+                $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === 0 ? 'https://' : 'http://';
+                $url = $protocol.$_SERVER['HTTP_HOST'];
+            }
+        }
 
         $body = "<!DOCTYPE html>
         <html>
