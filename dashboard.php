@@ -1,21 +1,25 @@
-<?php require "header.php"; ?>
-<h1 style="color: #394679;"> Welcome <?php echo $_SESSION["username"]; ?>,<h1>
+<?php require __DIR__.'/header.php'; ?>
+<h1 style="color: #394679;"> Welcome <h1>
 <?php
     function start_mailing()
     {
-        $num = rand(1,2000);
-        $img_response = file_get_contents("https://xkcd.com/$num/info.0.json ");
+        $info = get_headers('https://c.xkcd.com/random/comic/');
+        $temp_link = substr($info[8],10);
+        $img_response = file_get_contents($temp_link.'/info.0.json');
         $array = json_decode($img_response,true);
-        $image_link = $array["img"];//link to image
+        $image_link = $array['img'];//link to image
         $imagedata = base64_encode(file_get_contents($image_link));
         echo '<img src="data:image/jpeg;base64,'.$imagedata.'"><br>';
         //for inline data
-        $fname = $array["safe_title"].".jpeg";
-        $sep = 'image';//sha1(date('r', time()));
+        $fname = $array['safe_title'].'.jpeg';
+        $sep = 'image';
         
-        $email = $_SESSION["email"];
-        //require "config.php";
-        $apikey = getenv("API_KEY"); //$API_KEY;
+        $email = $_SESSION['email'];
+        $apikey = getenv('API_KEY'); //API_KEY;
+        $email_from = getenv('email_from');
+        $email_from_name = getenv('email_from_name');
+        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === 0 ? 'https://' : 'http://';
+        $url = $protocol.$_SERVER['HTTP_HOST'];
 
         $body = "<!DOCTYPE html>
         <html>
@@ -27,10 +31,10 @@
         <br>
         If you do not wish to receive this email please click below to unsubscribe.
         <br>
-        <a href='https://comisite.herokuapp.com/unsubscribe.php?unsub=true&email=$email'>UnSubscribe</a>
+        <a href='$url/unsubscribe.php?unsub=true&email=$email'>UnSubscribe</a>
         </body>
         </html>";
-        $subject = "Comic Update - ComiSite";
+        $subject = 'Comic Update - ComiSite';
 
         $headers = array(
             'Authorization: Bearer '.$apikey,
@@ -38,47 +42,47 @@
         );
 
         $data = array(
-            "personalizations" => array(
+            'personalizations' => array(
                 array(
-                    "to" => array(
+                    'to' => array(
                         array(
-                            "email" => $email,
-                            "name" => $email
+                            'email' => $email,
+                            'name' => $email
                         )
                     )
                 )
             ),
-            "from" => array(
-                "email" => "khadeyash547@gmail.com",
-                "name" => "ComiSite"
+            'from' => array(
+                'email' => $email_from,
+                'name' => $email_from_name
             ),
-            "subject" => $subject,
-            "content" => array(
+            'subject' => $subject,
+            'content' => array(
                 array(
-                    "type" => "text/html",
-                    "value" => $body
+                    'type' => 'text/html',
+                    'value' => $body
                 )
                 ),
-                "attachments" => array(
+                'attachments' => array(
                     array(
-                        "content" => $imagedata,
-                        "content_id" => $sep,
-                        "disposition" => "inline",
-                        "type" => "image/jpeg",
-                        "filename" => $fname
+                        'content' => $imagedata,
+                        'content_id' => $sep,
+                        'disposition' => 'inline',
+                        'type' => 'image/jpeg',
+                        'filename' => $fname
                     ),
                     array(
-                        "content" => $imagedata,
-                        "content_id" => "Attachment",
-                        "disposition" => "attachment",
-                        "type" => "image/jpeg",
-                        "filename" => $fname
+                        'content' => $imagedata,
+                        'content_id' => 'Attachment',
+                        'disposition' => 'attachment',
+                        'type' => 'image/jpeg',
+                        'filename' => $fname
                     )
                 ),
                     
         );
         $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
+        curl_setopt($ch, CURLOPT_URL, 'https://api.sendgrid.com/v3/mail/send');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -87,10 +91,10 @@
         $response = curl_exec($ch);
         curl_close($ch);
 
-        $db_host = getenv("db_host");
-        $db_username = getenv("db_username");
-        $db_password = getenv("db_password");
-        $db_database = getenv("db_database");
+        $db_host = getenv('db_host');
+        $db_username = getenv('db_username');
+        $db_password = getenv('db_password');
+        $db_database = getenv('db_database');
 
         $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
         $email = $_SESSION['email'];
@@ -102,8 +106,8 @@
     {
         if(!logged_in())
         {
-            phpalert("Please Login To Continue");
-            redirect("login.php");
+            phpalert('Please Login To Continue');
+            redirect('login.php');
         }
     }
     if(isset($_GET['run']))
@@ -112,22 +116,21 @@
     }
     if(isset($_GET['subscribe']))
     {
-        // require "config.php";
-        $db_host = getenv("db_host");
-        $db_username = getenv("db_username");
-        $db_password = getenv("db_password");
-        $db_database = getenv("db_database");
+        $db_host = getenv('db_host');
+        $db_username = getenv('db_username');
+        $db_password = getenv('db_password');
+        $db_database = getenv('db_database');
 
         $con = mysqli_connect($db_host,$db_username,$db_password,$db_database);
         $email = $_SESSION['email'];    
         $sql2 = "UPDATE user_data SET sub_status = 1 WHERE email = '$email'";
         if($con->query($sql2))
         {
-            echo "Subscribed Successfull";
+            echo 'Subscribed Successfull';
         }
         else
         {
-            echo "<br>Failed Try again After sometime";
+            echo '<br>Failed Try again After sometime';
         }
     }
 ?>
@@ -141,4 +144,4 @@
     font-variant: all-petite-caps;
     color: darkgray;
 ">*If You Subscribe You will Receive Comic mail from us every 5 minutes</p>
-<?php require "footer.php"; ?>
+<?php require __DIR__.'/footer.php'; ?>

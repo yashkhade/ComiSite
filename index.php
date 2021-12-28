@@ -1,5 +1,5 @@
-<?php require "header.php"; ?>
+<?php require __DIR__.'/header.php'; ?>
 
-<?php redirect("login.php"); ?>
+<?php redirect('login.php'); ?>
 
-<?php require "footer.php"; ?>
+<?php require __DIR__.'/footer.php'; ?>
